@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="AddProject.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Josefin+Sans:wght@700&family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Anton&display=swap" rel="stylesheet">
+    <title>Add Project - MyPorto</title>
+</head>
+<body>
+    <div class="header">
+        <div class="navbar">
+            <a href="Homepage_zero.php" class="logo_benerin">
+                <div class="text_logo3">MyPorto</div>
+            </a>
+            <nav class="nav-links">
+                <a href="Homepage_zero.php" class="home">Home</a>
+                <a href="logout.php" class="logout">Logout</a>
+            </nav>
+        </div>
+    </div>
+    <div class="form-container">
+        <form action="add_project.php" method="post" enctype="multipart/form-data">
+            <div class="input">
+                <img src="no-photo.png" class="tampilan" id="dispict" alt="Project Image">
+                <label for="inifile" class="inifile"> Upload Image</label>
+                <input id="inifile" type="file" accept="image/png, image/jpeg, image/jpg" name="foto_project" required>
+                <input type="text" placeholder="Title" class="title" name="judul_project" required>
+                <input type="date" class="initanggal" name="tanggal_project" required>
+                <select name="kategori_project" id="category" required>
+                    <option value="" disabled selected hidden>Choose Project Category</option>
+                    <option value="videography">Videography</option>
+                    <option value="photography">Photography</option>
+                    <option value="video_editing">Video Editing</option>
+                    <option value="photo_editing">Photo Editing</option>
+                    <option value="frontend_development">Frontend Development</option>
+                    <option value="backend_development">Backend Development</option>
+                </select>
+                <textarea placeholder="Description" class="deskripsi" name="deskripsi_project" required></textarea>
+                <input type="text" placeholder="Link (Optional)" class="link" name="link_project">
+                <button type="submit" class="uploadproject">Upload Project</button>
+            </div>
+        </form>
+    </div>
+    <script>
+        let displayPic = document.getElementById("dispict");
+        let inputFile = document.getElementById("inifile");
+
+        inputFile.onchange = function () {
+            displayPic.src = URL.createObjectURL(inputFile.files[0]);
+        };
+    </script>
+</body>
+</html>
